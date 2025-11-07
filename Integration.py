@@ -63,6 +63,6 @@ def delete_student():
     conn.commit()
 
 botton_remove = tk.Button(root,text='Remove',command=delete_student)
-botton_remove.pack(pady=25)
+botton_remove.pack(pady=25) 
 
 root.mainloop() 
