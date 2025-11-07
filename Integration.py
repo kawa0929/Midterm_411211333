@@ -1,22 +1,27 @@
-
+# initial environment
+# import modules
 import tkinter as tk
 import sqlite3
 
+# basic GUI 
 root = tk.Tk()
 root.title('INTEGRATION')
 root.geometry('300x400')
 
-
+# new label and inpu
+# student ID label and entry
 label_id = tk.Label(root, text='Student ID')
 label_id.pack(pady=(15,5))
 entry_id = tk.Entry(root, width=25)
 entry_id.pack()
 
+# student name label and entry
 label_name = tk.Label(root, text='Student Name')
 label_name.pack(pady=(10,5))
 entry_name = tk.Entry(root, width=25)
 entry_name.pack()
 
+# setting print_student function
 def print_student():
     student_id = entry_id.get()
     student_name = entry_name.get()
@@ -25,11 +30,13 @@ def print_student():
     print ('Student Name: {}'.format(student_name))
     print ('-'*30)
 
+# new a button: Print
 botton_print = tk.Button(root, text='Print', command=print_student)
 botton_print.pack(pady=15)
 
+# connect to database and build environment
 conn = sqlite3.connect('Student.db')
-cursor = conn.cursor() 
+cursor = conn.cursor()
 
 def create_student():
     student_id = entry_id.get()
@@ -45,13 +52,14 @@ def create_student():
 button_create = tk.Button(root, text='Create', command=create_student)
 button_create.pack(pady=20)
 
-
+# def a overview_student()
+# show all records in sqlite
 def overview_student():
     cursor.execute('SELECT * from DB_student')
     overview = cursor.fetchall()
     print (overview)
 
-
+# new botton Overview
 botton_overview = tk.Button(root, text='Overview', command=overview_student)
 botton_overview.pack(pady=25)
 
@@ -66,4 +74,4 @@ def delete_student():
 botton_remove = tk.Button(root,text='Remove',command=delete_student)
 botton_remove.pack(pady=25) 
 
-root.mainloop()
+root.mainloop()#must be put to the end of programming code
