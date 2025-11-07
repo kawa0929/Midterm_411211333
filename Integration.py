@@ -51,6 +51,7 @@ def overview_student():
     overview = cursor.fetchall()
     print (overview)
 
+
 botton_overview = tk.Button(root, text='Overview', command=overview_student)
 botton_overview.pack(pady=25)
 
@@ -63,6 +64,6 @@ def delete_student():
     conn.commit()
 
 botton_remove = tk.Button(root,text='Remove',command=delete_student)
-botton_remove.pack(pady=25)
+botton_remove.pack(pady=25) 
 
-root.mainloop() 
+root.mainloop()
