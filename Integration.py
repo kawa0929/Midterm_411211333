@@ -29,7 +29,7 @@ botton_print = tk.Button(root, text='Print', command=print_student)
 botton_print.pack(pady=15)
 
 conn = sqlite3.connect('Student.db')
-cursor = conn.cursor()
+cursor = conn.cursor() 
 
 def create_student():
     student_id = entry_id.get()
